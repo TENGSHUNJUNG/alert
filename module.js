@@ -13,7 +13,7 @@
 		size: 'md', // xs, sm, md, lg
 		html: {
 			icon: '',
-			content: ''
+			content: 'ctn'
 		},
 		class: {
 			main: 'alt_lnal',
