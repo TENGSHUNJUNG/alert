@@ -7,12 +7,13 @@
 		this.$container = $(container);
 		this.alerts = [];
 		this.options = options;
+		this.icon = $('<i class="'ic-lnpx warning_yellow d-ib align-middle'"></i>');
 	};
-
+//$('<div class="' + opt.button.class +'"></div>');
 	Module.DEFAULTS = {
 		size: 'md', // xs, sm, md, lg
 		html: {
-			icon: '',
+			icon: '<i class="ic-lnpx warning_yellow d-ib align-middle"></i>',
 			content: 'ctn'
 		},
 		class: {
