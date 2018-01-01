@@ -5,22 +5,25 @@
 
 	var Module = function ( container, options ) {
 		this.$container = $(container);
-		this.alerts = [];
+		this.alerts = ['md', 'sm', 'xs', 'lg'];
+		this.$main = $('<div id="' + options.id.alt_lnal + '"class="' + options.class.main + '"><div class="' + options.class.wrap.icon + '"></div><div class="' + options.class.wrap.content + '">' + options.html.content + '</div><a href="#" class="' + options.class.wrap.close + '"></a>');
 		this.options = options;
-		this.icon = $('<i class="'ic-lnpx warning_yellow d-ib align-middle'"></i>');
 	};
-//$('<div class="' + opt.button.class +'"></div>');
+
 	Module.DEFAULTS = {
 		size: 'md', // xs, sm, md, lg
 		html: {
-			icon: '<i class="ic-lnpx warning_yellow d-ib align-middle"></i>',
-			content: 'ctn'
+			icon: '',
+			content: '為了體驗更優質的網站服務，建議您更新瀏覽器版本。<a href="https://www.google.com/intl/zh-TW/chrome/browser/desktop/index.html?hl=zh_TW" class="c-white d-ib m-r-sm" target="_blank"><i class="ic-lnpx browser-chrome xs m-r-xs align-top"></i><span>Chrome</span></a></a><a href="http://windows.microsoft.com/zh-tw/internet-explorer/download-ie" class="c-white d-ib m-r-sm" target="_blank"><i class="ic-lnpx browser-ie xs m-r-xs align-top"></i><span>IE</span></a><a href="http://mozilla.com.tw/firefox/new/" class="c-white d-ib m-r-sm" target="_blank"><i class="ic-lnpx browser-firefox xs m-r-xs align-top"></i><span>Firefox</span></a><a href="https://support.apple.com/zh_TW/downloads/safari" class="c-white d-ib m-r-sm" target="_blank"><i class="ic-lnpx browser-safari xs m-r-xs align-top"></i><span>Safari</span></a>(單行高度40)'
+		},
+		id:{
+			alt_lnal:'alt_lnal'
 		},
 		class: {
-			main: 'alt_lnal',
+			main: 'alt_lnal-md',
 			wrap: {
 				icon: 'iwrap',
-				content: 'ctn',
+				content: 'ctn-md',
 				close: 'close'
 			}
 		},
@@ -35,12 +38,13 @@
 	};
 
 	Module.prototype.init = function () {
-		
-	};
-
-	Module.prototype.toggleAlert = function ( id ) {
+		this.$container.append(this.$main);
 
 	};
+
+	// Module.prototype.distoryAlert = function () {
+	// 	this.$container.removeClass(this.$main);
+	// };
 
 
 	$.fn[ModuleName] = function ( method, options ) {

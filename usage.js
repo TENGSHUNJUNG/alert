@@ -58,10 +58,10 @@ $('body').alert('createAlert', {
 	}
 });
 // 移除alert
-$('body').alert('distoryAlert', 'alt_lnal14852413');
+$('body').alert('distoryAlert', 'alt_lnal123');
 // 指定alert id 開或關
-$('body').alert('toggleAlert', 'alt_lnal14852413');
+$('body').alert('toggleAlert', 'alt_lnal123');
 // 指定alert id 開
-$('body').alert('showAlert', 'alt_lnal14852413');
+$('body').alert('showAlert', 'alt_lnal123');
 // 指定alert id 關
-$('body').alert('hideAlert', 'alt_lnal14852413');
+$('body').alert('hideAlert', 'alt_lnal123');
