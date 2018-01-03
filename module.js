@@ -38,20 +38,14 @@
 	};
 
 	Module.prototype.init = function () {
-		var options = this.options;
-		this.$container.append('<div id="' + options.id.alt_lnal + '"class="' + options.class.main + '"><div class="' + options.class.wrap.icon + '"></div><div class="' + options.class.wrap.content + '">' + options.html.content + '</div><a href="#" class="' + options.class.wrap.close + '"></a>');
-
+		var createAlert = function(){};
+		createAlert();
 	};
 
 
 	Module.prototype.createAlert = function(){
 		var options = this.options;
-		this.$container.attr('<div id="' + options.id.alt_lnal + '"class="' + options.class.main + '"><div class="' + options.class.wrap.icon + '"></div><div class="' + options.class.wrap.content + '">' + options.html.content + '</div><a href="#" class="' + options.class.wrap.close + '"></a>');
-		// if ( this.status === 0 ) {
-		// 	this.add_sm();
-		// } else if ( this.status === 0 ) {
-		// 	this.init();
-		// }
+		this.$container.append('<div id="' + options.id.alt_lnal + '"class="' + options.class.main + '"><div class="' + options.class.wrap.icon + '"></div><div class="' + options.class.wrap.content + '">' + options.html.content + '</div><a href="#" class="' + options.class.wrap.close + '"></a>');
 	};
 
 	// Module.prototype.add_sm = function(){
