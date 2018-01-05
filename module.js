@@ -6,18 +6,16 @@
 	var Module = function ( container, options ) {
 		this.$container = $(container);
 		this.options = options;
-		this.alerts = ['md', 'sm', 'xs', 'lg'];
-		this.status = 0;//0:md ,1sm ,2:xs ,3:lg
 	};
 
 	Module.DEFAULTS = {
 		size: 'md', // xs, sm, md, lg
 		html: {
 			icon: '',
-			content: '為了體驗更優質的網站服務，建議您更新瀏覽器版本。<a href="https://www.google.com/intl/zh-TW/chrome/browser/desktop/index.html?hl=zh_TW" class="c-white d-ib m-r-sm" target="_blank"><i class="ic-lnpx browser-chrome xs m-r-xs align-top"></i><span>Chrome</span></a></a><a href="http://windows.microsoft.com/zh-tw/internet-explorer/download-ie" class="c-white d-ib m-r-sm" target="_blank"><i class="ic-lnpx browser-ie xs m-r-xs align-top"></i><span>IE</span></a><a href="http://mozilla.com.tw/firefox/new/" class="c-white d-ib m-r-sm" target="_blank"><i class="ic-lnpx browser-firefox xs m-r-xs align-top"></i><span>Firefox</span></a><a href="https://support.apple.com/zh_TW/downloads/safari" class="c-white d-ib m-r-sm" target="_blank"><i class="ic-lnpx browser-safari xs m-r-xs align-top"></i><span>Safari</span></a>(單行高度40)'
+			content: '為了體驗更優質的網站服務，建議您更新瀏覽器版本。(單行高度40)'
 		},
 		id:{
-			alt_lnal:'alt_lnal-md'
+			alt_lnal:'alt_lnal'
 		},
 		class: {
 			main: 'alt_lnal-md',
@@ -31,38 +29,62 @@
 			main: null,
 			wrap: {
 				icon: null,
-				content: 'color:#ffea00',
+				content: '',
 				close: null
 			}
 		}
 	};
 
+
+
 	Module.prototype.init = function () {
-		var createAlert = function(){};
-		createAlert();
+		this.createAlert();
 	};
 
 
-	Module.prototype.createAlert = function(){
+	Module.prototype.createAlert = function( newOption ){
+		var newOpts = newOption;
 		var options = this.options;
-		this.$container.append('<div id="' + options.id.alt_lnal + '"class="' + options.class.main + '"><div class="' + options.class.wrap.icon + '"></div><div class="' + options.class.wrap.content + '">' + options.html.content + '</div><a href="#" class="' + options.class.wrap.close + '"></a>');
+		if ( typeof newOpts !== 'object' ) {
+			newOpts = this.options;
+		} else {
+			return this.extend(newOpts);
+		};
+		this.$container.append('<div id="' + options.id.alt_lnal + '"class="' + options.class.main + '"><div class="' + options.class.wrap.icon + '">' + options.html.icon + '</div><div style="'+ options.style.wrap.content +'"class="' + options.class.wrap.content + '">' + options.html.content + '</div><a href="#" class="' + options.class.wrap.close + '"></a>');
+		$('#alt_lnal').on('click','.close',function(){
+			$('#alt_lnal').remove();
+		});
+		
 	};
 
-	// Module.prototype.add_sm = function(){
-	// 	var options = this.options;
-	// 	this.$container.removeClass(options.class.wrap.content).addClass();
-	// }
+
+
+	Module.prototype.extend = function( option ) {
+		if ( typeof option === 'object' ) {
+			return $.extend(true, {}, Module.DEFAULTS, this.options, option);
+		} else {
+			throw 'First param of this function must be a object!!!'
+		}
+	};
+
 
 
 
 	Module.prototype.distoryAlert = function(){
 		this.$container.remove();
-	}
+	};
 
-	
+	Module.prototype.toggleAlert = function(){
+		$('#alt_lnal').toggleClass('hide');
+	};
 
+	Module.prototype.hideAlert = function(){
+		$('#alt_lnal').addClass('hide');
+	};
 
-
+	Module.prototype.showAlert = function(){
+		$('#alt_lnal').removeClass('hide').addClass('show');
+	};
 
 
 	$.fn[ModuleName] = function ( method, options ) {
