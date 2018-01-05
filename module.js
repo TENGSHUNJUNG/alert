@@ -72,7 +72,7 @@
 
 
 	Module.prototype.distoryAlert = function(){
-		this.$container.remove();
+		$('#alt_lnal').remove();
 	};
 
 	Module.prototype.toggleAlert = function(){
@@ -97,6 +97,7 @@
 				if ( typeof method === 'string' &&  typeof options === 'undefined' ) {
 					module[method]();
 				} else if ( typeof method === 'string' && typeof options === 'object' || typeof options === 'string' ) {
+					console.log(method)
 					module[method](options);
 				} else {
 					console.log('unsupported options!');

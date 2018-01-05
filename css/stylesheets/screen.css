@@ -37,7 +37,7 @@
   height: 30px;
 }
 
-.iwrap, .ic-lnpx {
+.iwrap {
   width: 17px;
   height: 15px;
   background: url("../../img/attn.png") no-repeat center;
