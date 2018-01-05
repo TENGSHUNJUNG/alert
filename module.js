@@ -51,6 +51,7 @@
 			return this.extend(newOpts);
 		};
 		this.$container.append('<div id="' + options.id.alt_lnal + '"class="' + options.class.main + '"><div class="' + options.class.wrap.icon + '">' + options.html.icon + '</div><div style="'+ options.style.wrap.content +'"class="' + options.class.wrap.content + '">' + options.html.content + '</div><a href="#" class="' + options.class.wrap.close + '"></a>');
+		
 		$('#alt_lnal').on('click','.close',function(){
 			$('#alt_lnal').remove();
 		});
