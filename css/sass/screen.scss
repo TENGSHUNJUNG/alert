@@ -1,0 +1,57 @@
+.alt_lnal-md{
+	display:flex;
+    align-items:center;
+    justify-content:center;
+	max-width: 1200px;
+	height: 40px;
+	background-color:#000000;
+	margin-right: auto;
+    margin-left: auto;
+    padding: 10px 8px 10px;
+}
+.ctn-md {
+    width: 1200px;
+    color: #fff;
+    float: left;
+}
+.ctn-lg{
+    @extend .ctn-md;
+    color:#ffea00;
+}
+.ctn-xs{
+    @extend .ctn-lg;
+}
+.alt_lnal-lg{
+    @extend .alt_lnal-md ;
+    height: 50px;
+}
+.ctn-sm{
+    @extend .ctn-md;
+    color:#ffea00;
+}
+
+.alt_lnal-xs{
+    @extend .alt_lnal-md ;
+    padding: 0px 8px 0px;
+    height: 25px;
+}
+.alt_lnal-sm{
+    @extend .alt_lnal-md ;
+    height: 30px;
+}
+.iwrap {
+	width: 17px;
+	height: 15px;
+	background: url("../../img/attn.png") no-repeat center;
+}
+.close {
+    background: url("../../img/close.png") no-repeat center;
+    width: 15px;
+    height:15px;
+}
+.show{
+    display: flex;
+}
+.hide{
+    display: none;
+}
