@@ -44,18 +44,19 @@
 
 	Module.prototype.createAlert = function( newOption ){
 		var newOpts = newOption;
-		var options = this.options;
+		// var options = this.options;
 		if ( typeof newOpts !== 'object' ) {
 			newOpts = this.options;
 		} else {
-			return this.extend(newOpts);
+			 this.extend(newOpts);
 		};
-		this.$container.append('<div id="' + options.id.alt_lnal + '"class="' + options.class.main + '"><div class="' + options.class.wrap.icon + '">' + options.html.icon + '</div><div style="'+ options.style.wrap.content +'"class="' + options.class.wrap.content + '">' + options.html.content + '</div><a href="#" class="' + options.class.wrap.close + '"></a>');
+		this.$container.append('<div id="' + newOpts.id.alt_lnal + '"class="' + newOpts.class.main + '"><div class="' + newOpts.class.wrap.icon + '">' + newOpts.html.icon + '</div><div style="'+ newOpts.style.wrap.content +'"class="' + newOpts.class.wrap.content + '">' + newOpts.html.content + '</div><a href="#" class="' + newOpts.class.wrap.close + '"></a>');
 		
-		$('#alt_lnal').on('click','.close',function(){
-			$('#alt_lnal').remove();
+		
+		$('#' + newOpts.id.alt_lnal + '').on('click','.close',function(){
+			$('#' + newOpts.id.alt_lnal + '').remove();
 		});
-		
+
 	};
 
 
@@ -71,21 +72,23 @@
 
 
 
-	Module.prototype.distoryAlert = function(){
-		$('#alt_lnal').remove();
+	Module.prototype.distoryAlert = function( selector ){
+		$('#' + selector).remove();
 	};
 
-	Module.prototype.toggleAlert = function(){
-		$('#alt_lnal').toggleClass('hide');
+	Module.prototype.toggleAlert = function( selector ){
+		$('#' + selector).toggleClass('hide');
 	};
 
-	Module.prototype.hideAlert = function(){
-		$('#alt_lnal').addClass('hide');
+	Module.prototype.hideAlert = function( selector ){
+		$('#' + selector).addClass('hide');
 	};
 
-	Module.prototype.showAlert = function(){
-		$('#alt_lnal').removeClass('hide').addClass('show');
+	Module.prototype.showAlert = function( selector ){
+		$('#' + selector).removeClass('hide').addClass('show');
 	};
+
+
 
 
 	$.fn[ModuleName] = function ( method, options ) {
@@ -97,7 +100,6 @@
 				if ( typeof method === 'string' &&  typeof options === 'undefined' ) {
 					module[method]();
 				} else if ( typeof method === 'string' && typeof options === 'object' || typeof options === 'string' ) {
-					console.log(method)
 					module[method](options);
 				} else {
 					console.log('unsupported options!');
