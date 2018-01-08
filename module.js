@@ -14,14 +14,11 @@
 			icon: '',
 			content: '為了體驗更優質的網站服務，建議您更新瀏覽器版本。(單行高度40)'
 		},
-		id:{
-			alt_lnal:'alt_lnal'
-		},
 		class: {
-			main: 'alt_lnal-md',
+			main: 'alt_lnal md',
 			wrap: {
 				icon: 'iwrap',
-				content: 'ctn-md',
+				content: 'ctn ',
 				close: 'close'
 			}
 		},
@@ -44,17 +41,18 @@
 
 	Module.prototype.createAlert = function( newOption ){
 		var newOpts = newOption;
-		// var options = this.options;
+		var randomNumber = parseInt(1000*Math.random()); 
 		if ( typeof newOpts !== 'object' ) {
-			newOpts = this.options;
+			$.extend(true, {}, Module.DEFAULTS, this.newOpts, newOpts);
+			newOpts = this.options;			
 		} else {
 			 this.extend(newOpts);
+			 newOpts = this.extend(newOpts);
 		};
-		this.$container.append('<div id="' + newOpts.id.alt_lnal + '"class="' + newOpts.class.main + '"><div class="' + newOpts.class.wrap.icon + '">' + newOpts.html.icon + '</div><div style="'+ newOpts.style.wrap.content +'"class="' + newOpts.class.wrap.content + '">' + newOpts.html.content + '</div><a href="#" class="' + newOpts.class.wrap.close + '"></a>');
+		this.$container.append('<div id=alt_lnal' + randomNumber + ' class="' + newOpts.class.main + '" style="' + newOpts.style.main + '"><div class="' + newOpts.class.wrap.icon + '" style="' + newOpts.style.wrap.icon + '">' + newOpts.html.icon + '</div><div style="' + newOpts.style.wrap.content + '"class="' + newOpts.class.wrap.content + '">' + newOpts.html.content + '</div><a href="#" class="' + newOpts.class.wrap.close + '" style="' + newOpts.style.wrap.close + '"></a>');
 		
-		
-		$('#' + newOpts.id.alt_lnal + '').on('click','.close',function(){
-			$('#' + newOpts.id.alt_lnal + '').remove();
+		$('#alt_lnal' + randomNumber + '').on('click','.close',function(){
+			$('#alt_lnal' + randomNumber + '').remove();
 		});
 
 	};
@@ -68,8 +66,6 @@
 			throw 'First param of this function must be a object!!!'
 		}
 	};
-
-
 
 
 	Module.prototype.distoryAlert = function( selector ){
