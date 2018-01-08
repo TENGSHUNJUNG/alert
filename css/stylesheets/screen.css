@@ -1,41 +1,33 @@
-.alt_lnal-md, .alt_lnal-lg, .alt_lnal-xs, .alt_lnal-sm {
+.alt_lnal {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-wrap: nowrap;
   max-width: 1200px;
-  height: 40px;
   background-color: #000000;
   margin-right: auto;
   margin-left: auto;
   padding: 10px 8px 10px;
   margin-bottom: 5px;
 }
+.alt_lnal.md {
+  height: 40px;
+}
+.alt_lnal.sm {
+  height: 30px;
+  color: #ffea00;
+}
+.alt_lnal.xs {
+  height: 25px;
+  color: #ffea00;
+}
+.alt_lnal.lg {
+  height: 50px;
+  color: #ffea00;
+}
 
-.ctn-md, .ctn-lg, .ctn-xs, .ctn-sm {
+.ctn {
   width: 1200px;
   color: #fff;
-  float: left;
-}
-
-.ctn-lg, .ctn-xs {
-  color: #ffea00;
-}
-
-.alt_lnal-lg {
-  height: 50px;
-}
-
-.ctn-sm {
-  color: #ffea00;
-}
-
-.alt_lnal-xs {
-  padding: 0px 8px 0px;
-  height: 25px;
-}
-
-.alt_lnal-sm {
-  height: 30px;
 }
 
 .iwrap {
