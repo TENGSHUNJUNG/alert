@@ -43,7 +43,6 @@
 		var newOpts = newOption;
 		var randomNumber = parseInt(1000*Math.random()); 
 		if ( typeof newOpts !== 'object' ) {
-			$.extend(true, {}, Module.DEFAULTS, this.newOpts, newOpts);
 			newOpts = this.options;			
 		} else {
 			 this.extend(newOpts);
